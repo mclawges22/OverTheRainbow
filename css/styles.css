@@ -1,0 +1,327 @@
+@font-face{
+    font-family:CenturyGothic;
+    src:url('../fonts/gothic1.ttf');
+}
+@font-face{
+    font-family:CenturyGothicBold;
+    src:url('../fonts/gothicb.ttf');
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin:0;
+    padding:0;
+}
+
+html {
+    height: 100%;
+    width:100%;
+    }
+body {
+    height: 900px;
+    margin: 0;
+    padding: 0
+    }
+header {
+    height:42px;
+    padding:0;
+    margin:0;
+    width:100%;
+   background-color:#3878C7;
+
+}
+    header h1 {
+       font-size:14pt;
+       font-family: CenturyGothic;
+       color:#fff;
+       float:left;
+       margin:10px 0px 9px 90px;
+       font-weight:100;
+
+    }
+    header #rainbow {
+        position:absolute;
+        top:0;
+        left:0;
+        width:95px;
+    }
+    header #right {
+        float:right;
+    }
+    header #right h4 {
+        float:left;
+        margin:14px 20px 11px 0px;
+        font-family:CenturyGothic;
+        font-size:11pt;
+        color:#fff;
+        font-weight:100;
+    }
+    header #right h4:first-child {
+        margin-right:12px;
+    }
+    header #right img {
+        float:left;
+        margin-right:12px;
+        padding:0;
+        height:43.5px;
+    }
+    #triangle-down {
+        width: 0;
+        height: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 6px solid #fff;
+        float:left;
+        margin-top:20px;
+        margin-right:15px;
+    }
+#left-container {
+    height:90%;
+    
+    position: absolute;
+        left: 0px;
+        top: 42px;
+}
+    #city {
+        font-family: CenturyGothic;
+        color:#B2AB96;
+        font-size:36pt;
+        padding:25px 30px 10px 30px;
+        font-weight:100;
+    }
+    #map-canvas {
+        
+        height:673px;
+        width:100%;
+        
+    }
+#right-container {
+    width:350px;
+    margin:0;
+    padding:0;
+    position:absolute;
+    right:0px;
+    top:42px;
+}
+    #search {
+        float:right;
+        margin:20px 0px;
+        padding:0;
+    }
+        #search h6 {
+            font-family:CenturyGothic;
+            font-size:12pt;
+            padding:0px 0px 10px 2px;
+            color:#3878C7;
+            font-weight:100;
+            text-align: center;
+        }
+        input[type="text"] {
+            width:225px;
+            height:22px;
+            border-radius: 12px;
+            border:1px solid #3878C7;
+            font-size:10pt;
+            padding:0 13px;
+            margin:0 48px;
+            font-family:CenturyGothic;
+
+        }
+            input:focus {
+                outline:none;
+            }
+
+        input[type="submit"] {
+            width:40px;
+            height:23px;
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+            background-color:#3878C7;
+            color:#000;
+            font-size:11.5pt;
+            font-family:CenturyGothic;
+            border:none;
+            position:absolute;
+            font-weight: 100;
+            right:48px;
+            top:50.5px;
+            color:#fff;
+        }
+    #tabs {
+        margin:94px 0;
+        width:100%;
+        cursor: pointer;
+    }
+        #tabs p {
+            font-family:CenturyGothic;
+            font-size:13pt;
+            position: absolute;
+            top:102px;
+            color:#fff;
+            font-weight: 100;
+            cursor: pointer;
+        }
+        #twitter-tab {
+            right:220px;
+        }
+        #instagram-tab {
+            right:96px;
+        }
+        #zillow-tab {
+            right:10px;
+            letter-spacing: 1px;
+        }
+        #house {
+            position:absolute;
+            right:306px;
+            top:99px;
+            z-index:50;
+            width:37px;
+        }
+        .rhombus-yellow {
+
+            position:relative;
+           width: 11.6%; 
+           height: 0;
+           float:left;
+           border-bottom: 35px solid #CCB453;
+           border-right: 32px solid transparent;
+
+        }
+        .rhombus-yellow:hover, .activeYellow {
+            border-bottom: 35px solid #FFE168;
+        }
+        .rhombus-blue {
+            margin-left:-4.5%;
+            position:relative;
+           width: 27%; 
+           height: 35px;
+           float:left;
+           background-color: #3566A0;
+           /* Skew */
+           -webkit-transform: skew(42deg); 
+           -moz-transform: skew(42deg); 
+           -o-transform: skew(42deg);
+           transform: skew(42deg);
+        }
+        .rhombus-blue:hover, .activeBlue {
+            background-color: #3878C7;
+        }
+        .rhombus-red {
+            position:relative;
+           width: 35%; 
+           height: 35px;
+           float:left;
+           background-color: #AE4D4D;
+           /* Skew */
+           -webkit-transform: skew(42deg); 
+           -moz-transform: skew(42deg); 
+           -o-transform: skew(42deg);
+           transform: skew(42deg);
+        }
+        .rhombus-red:hover, .activeRed {
+            background-color:#DA6160;
+        }
+        .rhombus-green {
+            margin-left:-4.6%;
+            position:relative;
+           width: 17.5%; 
+           height: 0;
+           float:left;
+            border-top: 35px solid #7FA03D;
+            border-left: 31px solid transparent;
+
+        }
+        .rhombus-green:hover, .activeGreen {
+            border-top-color: #9FC84D;
+        }
+        
+    
+        
+        #twitter {
+            height:638px;
+            margin-top:0px;
+            background-color:#3878C7;
+            overflow: hidden;
+            width:100%;
+            position:absolute;
+            right:0px;
+            top:129px;
+        }
+        #cost-of-living, #home, #instagram {
+            height:638px;
+            width:100%;
+            margin-top:0px;
+            overflow: hidden;
+            position:absolute;
+            right:0px;
+            top:129px;
+        }
+        #home {
+            background-color: #FFE168;
+        }
+        #instagram {
+            background-color: #DA6160;
+
+        }
+        #instagram-title, #twitter-title {
+            padding:15px 15px;
+            font-family: CenturyGothic;
+            color:#fff;
+            font-weight: 100;
+
+        }
+        #twitter a {
+            color:#fff;
+        }
+        #twitter a:hover {
+            color:#FFE168;
+        }
+        #twitter-title {
+            padding-bottom:0px;
+        }
+        #instagram-div {
+            width:100%;
+            height:630px;
+        }
+        #cost-of-living p{
+            font-family: CenturyGothic;
+            font-size: 11pt;
+            padding:20px 0;
+        }
+        .userPhoto {
+            float:left;
+            width:50px;
+            margin-right:10px;
+            margin-top:10px;
+        }
+        .tweet-div {
+            position:relative;
+            margin:0px 10px;
+            height:97px;
+        }
+        .tweet-div:first-child {
+            padding-top:10px;
+        }
+        .tweet {
+            float:left;
+            font-family: CenturyGothic;
+            color:#fff;
+            font-size:10pt;
+            width:245px;
+            margin:10px 10px 10px 10px;
+            padding:0 0 10px 0;
+        }
+    .instaframe {
+        width:33.33%;
+        height:117px;
+        float:left;
+        margin:0;
+        padding:0;
+    }
+        .instagram-photo {
+            width:100%;
+        }
+
+        .detail-widget {
+            background-color:aaa;
+        }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD39cFvd3xoQNwFeExdQAvMNj-SB-8Oz1k&sensor=false">
+    </script>
+    
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/DOMHandlers.js"></script>
+  </head>
+  <body>
+    <header>
+      <img id="rainbow" src="images/rainbow.png">
+      <h1>Somewhere Over The Rainbow</h1>
+      <div id="right">
+          <h4>Recent places</h4><div id="triangle-down"></div>
+          <img src="images/stripes.png">
+          <h4>Maegan</h4>
+          <h4>Log out</h4>
+      </div>
+    </header>
+      <div id="left-container">
+        <h1 id="city">San Francisco, CA</h1>
+        <div id="map-canvas"></div>
+      </div>
+      <div id="right-container">
+        <div id="search">
+          <h6>Where would you like to explore?</h6>
+          <input id="address" type="text" placeholder="New York City, NY">
+          <input type="button" value="Go" onclick="codeAddress()">
+        </div>
+        <div id="tabs">
+          <img id="house" src="images/house.png" onclick="homeActive()">
+          
+          <div class="rhombus-yellow" onclick="homeActive()"></div>
+          <div class="rhombus-blue"></div>
+          <div class="rhombus-red"></div>
+          <div class="rhombus-green"></div>
+          <p id="twitter-tab">Twitter</p>
+          <p id="instagram-tab">Instagram</p>
+          <p id="zillow-tab">Zillow</p>
+        </div>
+        <div id="overlay">
+          
+          <div class="overlay-RY active" onclick="homeActive()"></div>
+          <div class="overlay-RB" onclick="twitterActive()"></div>
+          <div class="overlay-RR" onclick="instagramActive()"></div>
+          <div class="overlay-RG" onclick="zillowActive()"></div>
+          
+        </div>
+      </div>
+  
+  </body>
+</html>
