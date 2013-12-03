@@ -107,7 +107,11 @@ header {
         margin:20px 0px;
         padding:0;
     }
-        #search h6 {
+    #m-search {
+        margin-top:35px;
+        padding:0;
+    }
+        #search h6, #m-search h6 {
             font-family:CenturyGothic;
             font-size:12pt;
             padding:0px 0px 10px 2px;
@@ -115,6 +119,7 @@ header {
             font-weight:100;
             text-align: center;
         }
+
         input[type="text"] {
             width:225px;
             height:22px;
@@ -161,18 +166,18 @@ header {
             cursor: pointer;
         }
         #twitter-tab {
-            right:220px;
+            right:63%;
         }
         #instagram-tab {
-            right:96px;
+            right:27.5%;
         }
         #zillow-tab {
-            right:10px;
+            right:3.5%;
             letter-spacing: 1px;
         }
         #house {
             position:absolute;
-            right:306px;
+            right:87.5%;
             top:99px;
             z-index:50;
             width:37px;
@@ -185,6 +190,7 @@ header {
            float:left;
            border-bottom: 35px solid #CCB453;
            border-right: 32px solid transparent;
+
 
         }
         .rhombus-yellow:hover, .activeYellow {
@@ -255,21 +261,105 @@ header {
             position:absolute;
             right:0px;
             top:129px;
+            margin-top:0px;
         }
         #home {
             background-color: #FFE168;
+            
         }
+        #weather {
+            width:92%;
+            height:185px;
+            border-bottom:1px solid #787365;
+            margin:0 4%;
+            
+        }
+            #sel-month {
+                width:120px;
+                border-radius: 12px;
+                border:1px solid #B2AB96;
+                font-size:10pt;
+                padding:0 13px;
+                margin:0 10px 0 20px;
+                margin-left:30px;
+                font-family:CenturyGothic;
+
+            }
+            select:focus {
+                outline:none;
+            }
+            #inner-weather {
+                width:75%;
+                height:115px;
+                background-color: #fff;
+                float:left;
+            }
+                #inner-weather img {
+                    margin:17px 10px;
+                    height:82px;
+                    float:right;
+
+                }
+                #inner-weather h4 {
+                    width:64%;
+                    color:#a6a6a6;
+                    font-family:CenturyGothic;
+                    font-weight: 100;
+                    padding-top:20px;
+                    padding-left:10px;
+                    font-size:11pt;
+                }
+                #inner-weather h1 {
+                    width:70%;
+                    color:#a6a6a6;
+                    font-family:CenturyGothic;
+                    font-weight: 100;
+                    margin-top:3px;
+                    text-align:center;
+                }
+                .averages, .averages strong {
+                    height:65px;
+                    float:left;
+                    text-align: center;
+                    width:21%;
+                    margin:0 0 0 4%;
+                    color:#787365;
+                    font-size:11pt;
+                    font-family:CenturyGothic;
+                    font-weight: 100;
+                }
+                .high {
+                    border-bottom:1px solid #787365;
+                    margin-bottom:4px;
+                    padding-bottom:2px;
+                }
+                .averages strong {
+                    font-size:16pt;
+                    float:none;
+                    line-height:1.5em;
+                }
+        #twitter-home {
+            margin:0 4%;
+        }
+        
+
         #instagram {
             background-color: #DA6160;
 
         }
-        #instagram-title, #twitter-title {
+        .home-title, #instagram-title, #twitter-title {
             padding:15px 15px;
             font-family: CenturyGothic;
             color:#fff;
             font-weight: 100;
+        }
+        .home-title {
+            color:#787365;
+            padding-left:0;
+            font-size:16pt;
 
         }
+
         #twitter a {
             color:#fff;
         }
@@ -325,3 +415,108 @@ header {
         .detail-widget {
             background-color:aaa;
         }
+
+/*******  for mobile  *******/
+
+@media screen and (max-width: 730px) {
+    header {
+        height:63px;
+    }
+    header h1 {
+        width:170px;
+    }
+
+    #left-container {
+        float:none;
+        
+    }
+        #city {
+            font-size:24pt;
+            padding-top:30px;
+        }
+        input[type="text"] {
+            margin:0 auto;
+        }
+        input[type="submit"] {
+            top:65px;
+        }   
+        #map-canvas {
+            height:400px;
+            margin-top:20px;
+        }
+
+    #right-container {
+        top:457px;
+        float:right;
+        width:100%;
+    }    
+        .rhombus-yellow {
+            width: 13.6%;
+        }
+        
+        .rhombus-blue {
+            width: 27.2%; 
+        }
+       
+        .rhombus-red {
+           width: 34%; 
+        }
+        
+        .rhombus-green {
+           width: 18.5%; 
+        }
+        .tweet {
+            width:300px;
+        }
+        .instaframe {
+            height:130px;
+        }
+    
+}
+@media screen and (max-width: 400px) {
+        .rhombus-yellow {
+            width: 10.8%;
+        }
+        
+        .rhombus-blue {
+            width: 27.6%; 
+        }
+       
+        .rhombus-red {
+           width: 34.7%; 
+        }
+        
+        .rhombus-green {
+           width: 18%; 
+        }
+        .tweet {
+            width:250px;
+        }
+        .instaframe {
+            height:117px;
+        }
+        
+}
+@media screen and (max-width: 350px) {
+        .rhombus-yellow {
+            width: 10.4%;
+        }
+        
+        .rhombus-blue {
+            width: 27%; 
+        }
+       
+        .rhombus-red {
+           width: 34%; 
+        }
+        
+        .rhombus-green {
+           width: 18%; 
+        }
+        .tweet {
+            width:200px;
+        }
+        .instaframe {
+            height:100px;
+        }
+}

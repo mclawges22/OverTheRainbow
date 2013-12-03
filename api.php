@@ -24,7 +24,14 @@
       </div>
     </header>
       <div id="left-container">
-        <h1 id="city">San Francisco, CA</h1>
+        <div id="m-search">
+          <h6>Where would you like to explore?</h6>
+          <form id="m-topForm" method="post">
+          <input id="m-address" name="address-input" type="text" placeholder="New York">
+          <input id="addressButton" type="submit" value="Go" onclick="codeAddressM()"></form>
+        </div>
+        <h1 id="city">San Francisco</h1>
+
         <div id="map-canvas"></div>
       </div>
       <div id="right-container">
@@ -48,6 +55,35 @@
         </div>
 
         <div id="home">
+          <div id="weather">
+            <h3 id="weather-home-title" class="home-title">Weather for...
+            <select id="sel-month" onchange="monthChange(this)">
+              <option value="01">January</option>
+              <option value="02">February</option>
+              <option value="03">March</option>
+              <option value="04">April</option>
+              <option value="05">May</option>
+              <option value="06">June</option>
+              <option value="07">July</option>
+              <option value="08">August</option>
+              <option value="09">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select></h3>
+            <div id="inner-weather">
+              <img src="images/weather/partlyCloudy.png">
+              <h4>Chance of precipitation</h4>
+              <h1>1%</h1>
+            </div>
+              <h4 class="averages high">Average<br>High<br><strong id="high-temp">71&#8457;</strong></h4>
+              
+              <h4 class="averages low">Low<br><strong id="low-temp">55&#8457;</strong></h4>
+            
+          </div>
+          <div id="twitter-home">
+            <h3 id="twitter-home-title" class="home-title">#SanFrancisco</h3>
+          </div>
         </div>
         <div id="twitter">
           <h3 id="twitter-title">#SanFrancisco</h3>

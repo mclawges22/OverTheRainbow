@@ -6,6 +6,7 @@
     var address;
     var encodeCity;
     var noSpaceCity;
+    var currMonth;
     function initialize() {
         geocoder = new google.maps.Geocoder();
         latlng = new google.maps.LatLng(37.7833, -122.4167);
@@ -19,7 +20,8 @@
         noSpaceCity = "SanFrancisco";
         getTweets("SanFrancisco");
         getInstagram("SanFrancisco");
-        getDemographics();
+        getWeather("San_Francisco");
+        //getDemographics();
     }
     
     function getTweets(city) {
@@ -28,10 +30,10 @@
         $("#twitter-div").html(data);
         $("#twitter-title").html("#" + noSpaceCity);
 
-      })
+      });
     }
 
-    function getDemographics() {
+    /*function getDemographics() {
       $.ajax({
         type: "GET",
         dataType: "jsonp",
@@ -54,10 +56,36 @@
       });
 
       
-    }
+    }*/
 
     function codeAddress() {
         address = document.getElementById('address').value;
+        console.log(document.getElementById('address').value);
+        encodeCity = encodeURIComponent(address);
+        noSpaceCity= address.replace(/ /g,'')
+        console.log(encodeCity);
+        console.log(noSpaceCity);
+        getTweets(encodeCity);
+        getInstagram(noSpaceCity);
+        
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            latlng = results[0].geometry.location;
+            map.setCenter(latlng);
+            console.log(latlng.ob);
+            console.log(latlng.pb);
+            $("#city").html(address);
+          } else {
+            console.log('Geocode was not successful for the following reason: ' + status);
+            alert('We were unable to find that location, please check the spelling of your search and specify the location.');
+          }
+        });
+        //getDemographics();
+    }
+
+    function codeAddressM() {
+        address = document.getElementById('m-address').value;
+        console.log(document.getElementById('m-address').value);
         encodeCity = encodeURIComponent(address);
         noSpaceCity= address.replace(/ /g,'')
         console.log(encodeCity);
@@ -103,9 +131,25 @@
       }
     });
 
-};
+  }
 
-/*GET /v1/tags/sanfrancisco/media/recent?access_token=281771507.1fb234f.20338b4868464ff4aeea3b6d4cf13fef HTTP/1.1
+function getWeather (city) {
+
+    $.ajax({
+      type: "GET",
+      dataType: "jsonp",
+      cache: false,
+      url: "http://api.wunderground.com/api/d5196a8011cd3d5e/planner_"+currMonth+"01"+currMonth+"28"+"/q/CA/"+city+".json",
+      success: function(weather) {
+          console.log(weather.trip);
+      }
+    });
+}
+
+/*
+weather undergraound key: d5196a8011cd3d5e
+
+GET /v1/tags/sanfrancisco/media/recent?access_token=281771507.1fb234f.20338b4868464ff4aeea3b6d4cf13fef HTTP/1.1
 X-HostCommonName:
 api.instagram.com
 Host:
