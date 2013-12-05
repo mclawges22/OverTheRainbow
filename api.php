@@ -3,32 +3,67 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     
+    <link rel="stylesheet" type="text/css" href="css/nv.d3.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD39cFvd3xoQNwFeExdQAvMNj-SB-8Oz1k&sensor=false">
     </script>
-    
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+    <script type="text/javascript" src="js/nv.d3.min.js"></script>
     <script type="text/javascript" src="js/map.js"></script>
     <script type="text/javascript" src="js/DOMHandlers.js"></script>
+
+    <!-- TableTop.js -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.1.0/tabletop.min.js"></script>
+
+    <!-- TableTop.js initialization -->
+    <script type="text/javascript">
+          window.onload = function() { init() };
+
+          var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?key=0AsaFsXSqVoy6dGVRSW5YVFBmaHB4NzBDWkN6NlJZaVE&output=html';
+
+          function init() {
+            Tabletop.init( { key: public_spreadsheet_url,
+                             callback: showInfo,
+                             simpleSheet: true } )
+          }
+          var TableTopData;
+
+          function showInfo(data, tabletop) {
+            console.log(data);
+            TableTopData = data;
+          }
+    </script>
   </head>
   <body>
+  
     <header>
       <img id="rainbow" src="images/rainbow.png">
       <h1>Somewhere Over The Rainbow</h1>
       <div id="right">
-          <h4>Recent places</h4><div id="triangle-down"></div>
+          <h4 id="recent">Recent places</h4><div id="triangle-down"></div>
           <img src="images/stripes.png">
-          <h4>Maegan</h4>
-          <h4>Log out</h4>
+          <h4 id="about" onclick="about()">About</h4>
+          <h4 id="close" onclick="close()">Close</h4>
+          <h4 id="user">Maegan</h4>
+          <h4 id="log-out">Log out</h4>
+          <div id="about-section">
+            <p><strong>Ever considered moving? </strong><br>Whether for a summer internship or permanent move, 
+              "Somewhere Over The Rainbow" allows you to explore an area. Type in the name of a city and view geography, 
+              nearby attractions, demographic data, recent social media activity and the weather for various times of year.</p>
+              <p>This is a project by <a href="http://maeganclawges.com" target="_blank">Maegan Clawges</a>, 
+              a interactive graphic design and computer science double major at the University of North Carolina at Chapel Hill.
+              It was made for an Intermediate Multimedia and Web Development class in the UNC Journalism School.</p>
+          </div>
       </div>
     </header>
       <div id="left-container">
         <div id="m-search">
           <h6>Where would you like to explore?</h6>
           <form id="m-topForm" method="post">
-          <input id="m-address" name="address-input" type="text" placeholder="New York">
-          <input id="addressButton" type="submit" value="Go" onclick="codeAddressM()"></form>
+          <input id="m-address" name="address-input" type="text" placeholder="Chicago">
+          <input id="addressButton" type="submit" value="Go"></form>
         </div>
         <h1 id="city">San Francisco</h1>
 
@@ -38,8 +73,8 @@
         <div id="search">
           <h6>Where would you like to explore?</h6>
           <form id="topForm" method="post">
-          <input id="address" name="address-input" type="text" placeholder="New York">
-          <input id="addressButton" type="submit" value="Go" onclick="codeAddress()"></form>
+          <input id="address" name="address-input" type="text" placeholder="Chicago">
+          <input id="addressButton" type="submit" value="Go"></form>
         </div>
         <div id="tabs">
           <img id="house" src="images/house.png" onclick="homeActive()">
@@ -72,9 +107,9 @@
               <option value="12">December</option>
             </select></h3>
             <div id="inner-weather">
-              <img src="images/weather/partlyCloudy.png">
-              <h4>Chance of precipitation</h4>
-              <h1>1%</h1>
+              <img id="weather-icon" src="images/weather/partlyCloudy.png">
+              <h4 id="title-precip">Chance of precipitation</h4>
+              <h1 id="chance-precip">1%</h1>
             </div>
               <h4 class="averages high">Average<br>High<br><strong id="high-temp">71&#8457;</strong></h4>
               
@@ -83,6 +118,10 @@
           </div>
           <div id="twitter-home">
             <h3 id="twitter-home-title" class="home-title">#SanFrancisco</h3>
+            <div id="instagram-top-6">
+            </div>
+            <div id="twitter-top-3">
+            </div>
           </div>
         </div>
         <div id="twitter">
@@ -94,17 +133,40 @@
           <div id="instagram-div"></div>
         </div>
         <div id="cost-of-living">
-          <div style='width:300px;margin:0 auto;'>
-              <p>This is the overall cost of living index, which takes into account 
-                childcare, healthcare, housing, food, transportation, and tax expenses. 
-                The nationwide average score is 100. Therefore, if this result has a score 
-                of 110, it is 10% higher than the U.S average.</p>
-              <iframe src='http://cost-of-living.findthedata.org/w/giR9Tfll941' 
-                  width=340 height=450 frameborder=0 scrolling='no' style='vertical-align:top;' ></iframe>
-              <div style='text-align:center;'>
-                <a target='_blank' href='http://cost-of-living.findthedata.org/l/60/San-Francisco-CA-Metro-Area' style='font:10px/14px arial;color:#3d3d3d;'>See more details | FindTheBest</a>
-              </div>
+          <h3 id="data-title">Demographics and Ethnicity</h3>
+          
+            <div id="left">
+              <h3>Population<br><strong id="population">825,863</strong></h2>
+              <div class="border"></div>
+
+              <h3><strong id="people-sq-mi">17,179.1</strong><br>people per square mile</h3>
+              <div class="border"></div>
+
+              <h3><strong id="pop-change">3.66%</strong><br>change in population from 2000<br>to 2010</h3>
+              <div class="border"></div>
+
+              <h3><strong id="percent-units-available">8.25%</strong><br>of the<br><strong id="housing-units">376942</strong><br>housing units<br>in the area<br>are vacant.</h3>
+             
             </div>
+            <div id="right">
+              <div id="other" class="ethnicity"></div>
+              <div id="multi" class="ethnicity"></div>
+              <div id="hispanic" class="ethnicity"></div>
+              <div id="asian" class="ethnicity"></div>
+              <div id="afram" class="ethnicity"></div>
+              <div id="white" class="ethnicity"></div>
+            
+            </div>
+            <div id="right-text">
+              <h3 id="other-text" class="ethnic-text"></h3>
+              <h3 id="multi-text" class="ethnic-text"></h3>
+              <h3 id="hispanic-text" class="ethnic-text"></h3>
+              <h3 id="asian-text" class="ethnic-text"></h3>
+              <h3 id="afram-text" class="ethnic-text"></h3>
+              <h3 id="white-text" class="ethnic-text"></h3>
+            
+            </div>
+            <p class="credit">Data from <a href="http://developer.usatoday.com/docs/read/Census">USA Today Census API</a></p><img id="USAToday-logo" src="images/USAToday-logo.png">
         </div>
       </div>
   <script>

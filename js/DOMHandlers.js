@@ -6,6 +6,13 @@ $( document ).ready(function() {
 	$("#twitter").hide();
 	$("#instagram").hide();
 	$("#cost-of-living").hide();
+	$("#recent").hide();
+	$("#triangle-down").hide();
+    $("#user").hide();
+    $("#log-out").hide();    
+    $("#close").hide();
+    $("#about-section").hide();   
+
 	homeActive();
 
     $( window ).resize(function() {
@@ -21,16 +28,15 @@ $( document ).ready(function() {
     weatherMonth.value = currMonth;
     console.log("current month is: " + weatherMonth.value);
 
+    //Only works on second hit for the city
 	$("#topForm").submit(function(e){
 		e.preventDefault();
 		console.log("enter");
-		
 		codeAddress();
 	});
 	$("#m-topForm").submit(function(e){
 		e.preventDefault();
 		console.log("enter");
-		
 		codeAddressM();
 	});
 
@@ -49,7 +55,7 @@ function mobileCheck () {
     	$("#m-search").hide();
     	$("#right").show();
     	$("#city").show();
-    	$(".tweet").css("width", "245px");
+
     	
     }
     else {
@@ -111,7 +117,20 @@ function zillowActive () {
 	$("#instagram").hide();
 	$("#cost-of-living").show();
 }
+
+function about() {
+	$("#about").hide();
+	$("#close").show();
+	$("#about-section").show();
+}
+/*** not working ***/
+function close() {
+	console.log("closing");
+	$("#about").show();
+	$("#close").hide();
+	$("#about-section").hide();
+}
 function monthChange(month) {
 	currMonth = month.value;
-	getWeather("San_Francisco");
+	getWeather(underScoreCity);
 }

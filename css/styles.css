@@ -17,7 +17,7 @@ html {
     width:100%;
     }
 body {
-    height: 900px;
+    min-height: 800px;
     margin: 0;
     padding: 0
     }
@@ -55,8 +55,46 @@ header {
         color:#fff;
         font-weight:100;
     }
+    header #right #about, header #right #close {
+        cursor: pointer;
+        margin-right:70px;
+    }
     header #right h4:first-child {
         margin-right:12px;
+    }
+    header #right #about-section {
+        width:350px;
+        height:315px;
+        background-color:#B2AB96;
+        opacity:.92;
+        position:absolute;
+        top:42px;
+        right:0;
+        z-index:99;
+        
+    }
+    header #right #about-section p strong {
+        color:#000;
+        font-size:14pt;
+        line-height:2em;
+    }
+    header #right #about-section a {
+        color:#fff;
+    }
+    header #right #about-section a:hover {
+        color:#000;
+    }
+    header #right #about-section p:first-child {
+        color:#222;
+        padding:9px 20px;
+        font-family:CenturyGothic;
+        font-size:11pt;
+    }
+    header #right #about-section p:last-child {
+        color:#222;
+        padding:6px 20px;
+        font-family:CenturyGothic;
+        font-size:10pt;
     }
     header #right img {
         float:left;
@@ -263,14 +301,15 @@ header {
             top:129px;
             margin-top:0px;
         }
+
         #home {
             background-color: #FFE168;
             
         }
         #weather {
             width:92%;
-            height:185px;
-            border-bottom:1px solid #787365;
+            height:170px;
+            
             margin:0 4%;
             
         }
@@ -310,7 +349,7 @@ header {
                     font-size:11pt;
                 }
                 #inner-weather h1 {
-                    width:70%;
+                    width:45%;
                     color:#a6a6a6;
                     font-family:CenturyGothic;
                     font-weight: 100;
@@ -341,8 +380,15 @@ header {
         #twitter-home {
             margin:0 4%;
         }
+        #instagram-top-6 {
+            height:210px;
+            width:100%;
+        }
+        #twitter-top-3 {
+            overflow: hidden;
+            width:100%;
+        }
         
-
         #instagram {
             background-color: #DA6160;
 
@@ -369,15 +415,12 @@ header {
         #twitter-title {
             padding-bottom:0px;
         }
+        
         #instagram-div {
             width:100%;
             height:630px;
         }
-        #cost-of-living p{
-            font-family: CenturyGothic;
-            font-size: 11pt;
-            padding:20px 0;
-        }
+        
         .userPhoto {
             float:left;
             width:50px;
@@ -392,12 +435,23 @@ header {
         .tweet-div:first-child {
             padding-top:10px;
         }
-        .tweet {
+        #twitter-div .tweet {
             float:left;
             font-family: CenturyGothic;
             color:#fff;
             font-size:10pt;
             width:245px;
+            margin:10px 10px 10px 10px;
+            padding:0 0 10px 0;
+        }
+        #twitter-top-3 .tweet {
+            width:210px;
+            color:#6B675A;
+            float:left;
+            font-family: CenturyGothic;
+            
+            font-size:10pt;
+            
             margin:10px 10px 10px 10px;
             padding:0 0 10px 0;
         }
@@ -408,14 +462,134 @@ header {
         margin:0;
         padding:0;
     }
+    .instaframehome {
+        width:33.33%;
+        height:100px;
+        float:left;
+        margin:0;
+        padding:0;
+    }
         .instagram-photo {
             width:100%;
         }
 
-        .detail-widget {
-            background-color:aaa;
+    #cost-of-living {
+        background-color: #9FC84D;
+    }
+        #cost-of-living #data-title {
+            font-size:1.4em;
+            color:#787365;
+            font-family:CenturyGothic;
+            font-weight:100;
+            padding:15px 20px;
         }
+    
+        #cost-of-living #left {
+            width:40%;
+            padding:5px 0px 0 20px;
+            float:left;
+        }
+            #cost-of-living #left h3 {
+                padding-bottom:10px;
+                font-family: CenturyGothic;
+                color:#fff;
+                font-weight: 500;
+                text-align:center;
+            }
+                #cost-of-living h3 strong {
+                    font-size:1.6em;
+                }
 
+            #cost-of-living .border {
+                border-top:1px solid #fff;
+                height:10px;
+                width:70%;
+                margin:5px 15% 0 15%;
+            }
+            
+            #cost-of-living .top {
+                border-top-color:#787365;
+                height:5px;
+                margin:0px 15% 0 15%;
+                
+            }
+
+        #cost-of-living #right {
+            width:20%;
+            
+            font-family:CenturyGothic;
+            color:#fff;
+            margin:7px 10px 10px 10px;
+            float:left;
+            height:425px;
+            background-color: #aaa;
+        }
+        #cost-of-living #right .ethnicity {
+            width:100%;
+            
+            
+        }
+        #cost-of-living #right-text strong{
+            font-size:1.5em;
+        }
+        #cost-of-living #right-text {
+            float:left;
+            width:25%;
+            font-family:CenturyGothic;
+            font-size: .7em;
+            color:#fff;
+            
+        }
+        #cost-of-living #right-text h3 {
+            padding-top:30px;
+        }
+        #cost-of-living #right-text h3:first-child {
+            padding-top:5px;
+        }
+        #cost-of-living #right #white {
+            height:48.5%;
+            background-color: #3878C7;
+        }
+        #cost-of-living #right #afram {
+            height:6.1%;
+            background-color: #DA6160;
+        }
+        #cost-of-living #right #asian {
+            height:33.3%;
+            background-color: #FFE168;
+
+        }
+        #cost-of-living #right #hispanic {
+            height:15.1%;
+            background-color: #ED9B38;
+        }
+        #cost-of-living #right #multi {
+            height:4.7%;
+            background-color: #B2D1FF;
+        }
+        #cost-of-living #right #other {
+            height:6.6%;
+            background-color: #787365;
+        }
+        #cost-of-living .credit {
+            margin-top:17px;
+            font-family: CenturyGothic;
+            color:#fff;
+            margin-left:15px;
+            float:left;
+            font-size: .9em;
+        } 
+            #cost-of-living .credit a {
+                color:#787365;
+            }
+            #USAToday-logo {
+                height:49px;
+                margin-left:17px;
+                float:left;
+            }
+
+        
+    
 /*******  for mobile  *******/
 
 @media screen and (max-width: 730px) {
@@ -465,11 +639,19 @@ header {
         .rhombus-green {
            width: 18.5%; 
         }
-        .tweet {
+        #twitter-div .tweet {
             width:300px;
         }
+        
         .instaframe {
             height:130px;
+        }
+        #twitter-top-3 .tweet {
+            width:265px;
+            color:#6B675A;
+        }
+        #instagram-top-6 {
+            height:240px;
         }
     
 }
@@ -489,11 +671,19 @@ header {
         .rhombus-green {
            width: 18%; 
         }
-        .tweet {
+        #twitter-div .tweet {
             width:250px;
         }
+        
         .instaframe {
             height:117px;
+        }
+        #twitter-top-3 .tweet {
+            width:225px;
+            color:#6B675A;
+        }
+        #instagram-top-6 {
+            height:215px;
         }
         
 }
@@ -513,10 +703,51 @@ header {
         .rhombus-green {
            width: 18%; 
         }
-        .tweet {
-            width:200px;
+        #twitter-div .tweet {
+            width:205px;
         }
+        
         .instaframe {
             height:100px;
         }
+        #twitter-top-3 .tweet {
+            width:193px;
+            color:#6B675A;
+        }
+        #instagram-top-6 {
+            height:200px;
+        }
+        #sel-month {
+                width:110px;
+                padding-right:0px;
+                margin-right:0px;
+            }
+            #weather-home-title {
+                margin-right:0px;
+                padding-right:0px;
+            }
+            #inner-weather h4 {
+                    width:66%;
+                    color:#a6a6a6;
+                    font-family:CenturyGothic;
+                    font-weight: 100;
+                    padding-top:20px;
+                    padding-left:6px;
+                    font-size:10pt;
+                }
+                #cost-of-living #data-title {
+                    font-size:1.2em;
+                }
+        #cost-of-living .credit {
+            
+            font-size: .8em;
+        } 
+            #cost-of-living .credit a {
+                color:#787365;
+            }
+            #USAToday-logo {
+                height:35px;
+                margin-left:17px;
+                float:left;
+            }
 }
